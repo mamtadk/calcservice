@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    image: calc:1.0
+    build: ./
+    command: python app.py -h 0.0.0.0
+    ports:
+      - 5000:5000

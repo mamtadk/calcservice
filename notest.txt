@@ -1,0 +1,54 @@
+aws ecr create-repository --repository-name calc-repo
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-east-1:353766797959:repository/calc-repo",
+        "registryId": "353766797959",
+        "repositoryName": "calc-repo",
+        "repositoryUri": "353766797959.dkr.ecr.us-east-1.amazonaws.com/calc-repo",
+        "createdAt": "2022-12-19T10:05:34-05:00",
+        "imageTagMutability": "MUTABLE",
+        "imageScanningConfiguration": {
+            "scanOnPush": false
+        },
+        "encryptionConfiguration": {
+            "encryptionType": "AES256"
+        }
+    }
+}
+
+aws ecr get-login-password --region us-east-1 | docker login -u AWS --password-stdin 353766797959.dkr.ecr.us-east-1.amazonaws.com/calc-repo
+
+docker tag calc:1.1 353766797959.dkr.ecr.us-east-1.amazonaws.com/calc-repo:v1.1
+docker push 353766797959.dkr.ecr.us-east-1.amazonaws.com/calc-repo:v1.1
+
+
+Record name
+yovi.ml
+Record type
+NS
+Value
+ns-175.awsdns-21.com.
+ns-964.awsdns-56.net.
+ns-1925.awsdns-48.co.uk.
+ns-1339.awsdns-39.org.
+Alias
+No
+TTL (seconds)
+172800
+Routing policy
+Simple
+
+
+
+Record name
+yovi.ml
+Record type
+SOA
+Value
+ns-175.awsdns-21.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+Alias
+No
+TTL (seconds)
+900
+Routing policy
+Simple
