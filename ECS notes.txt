@@ -1,0 +1,18 @@
+Sure! Here's a simple way to explain the components of Amazon Elastic Container Service (ECS) to a kid:
+
+Imagine that you have a bunch of toys that you want to play with, but they all need different things to work properly. Some toys need batteries, some need to be plugged in, and some need special parts to function.
+
+To make it easier to play with your toys, you create a list of instructions for each toy that tells you everything you need to do to get it working. This list of instructions is like a task definition in ECS.
+
+Next, you take one of your toys and follow the instructions to get it set up and running. This toy is like a task in ECS.
+
+To keep your toys organized, you put them in different bins or on different shelves. These bins or shelves are like clusters in ECS.
+
+Sometimes you want to play with a toy all the time, like a favorite stuffed animal or a puzzle that you like to work on. In this case, you want to make sure that the toy is always ready for you to play with. To do this, you might set up a special shelf or bin for this toy, and make sure that it is always stocked with everything it needs. This special shelf or bin is like a service in ECS.
+
+Finally, to play with your toys, you need a place to set them up and make them work. This could be your bedroom, a playroom, or a table in the living room. These places are like container instances in ECS - they are the hosts that run your tasks.
+
+So, when you use ECS to run and manage your containerized applications, you're using task definitions to describe how your applications should be run, tasks to actually run the applications, clusters to organize your tasks, services to make sure your applications are always running, and container instances to host your tasks. Just like you use instructions, toys, bins, special shelves, and play areas to play with your toys!
+
+
+

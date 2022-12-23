@@ -4,6 +4,5 @@ output "alb_dns_name" {
 }
 
 output "region" {
-  description = "Region"
-  value       = "${var.region}"
+  value = "${var.region}"
 }

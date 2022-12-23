@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -21,7 +22,8 @@ def health():
     is_healthy = True  # set this to False if any checks fail
 
     if is_healthy:
-        return 'OK'
+        region = os.environ['MYSQL_USER'] 
+        return region if not None else "Ok"
     else:
         return 'NOT OK', 500
 

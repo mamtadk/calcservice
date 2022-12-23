@@ -3,8 +3,9 @@ locals {
   account_id = data.aws_caller_identity.current.account_id
 }
 
+
 resource "aws_iam_role" "ecs_service_role" {
-  name               = "ecs_service_role"
+  name               = "ecs_service_role_w"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.ecs_service_role_pd.json
 
@@ -33,7 +34,7 @@ resource "aws_iam_role" "ecs_service_role" {
 }
 
 resource "aws_iam_role" "ec2_role" {
-  name                = "ec2_role"
+  name                = "ec2_role_w"
   path                = "/"
   assume_role_policy  = data.aws_iam_policy_document.ec2_role_pd.json
   managed_policy_arns = ["arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"]
@@ -86,7 +87,7 @@ resource "aws_iam_role" "ec2_role" {
 }
 
 resource "aws_iam_role" "autoscaling_role" {
-  name               = "autoscaling_role"
+  name               = "autoscaling_role_w"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.autoscaling_pd.json
 
@@ -114,6 +115,7 @@ resource "aws_iam_role" "autoscaling_role" {
     })
   }
 }
+
 
 # Create a VPC.
 resource "aws_vpc" "main" {
@@ -350,7 +352,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
     "essential": true,
     "memory": 300,
     "environment": [
-        {"name": "MYSQL_USER", "value": "east"},
+        {"name": "MYSQL_USER", "value": "west"},
     {"name": "MYSQL_PASSWORD", "value": "salgaonkar"},
      {"name": "DB_HOST", "value": "salgaonkardev-1.cluster-ckix43wel9ed.us-east-1.rds.amazonaws.com"},
      {"name": "DB_PORT", "value": "3306"},
@@ -445,7 +447,7 @@ resource "aws_ecs_service" "service" {
 
 # Create an EC2 instance profile.
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  name = "ec2_instance_profile"
+  name = "ec2_instance_profile_w"
   role = aws_iam_role.ec2_role.name
 }
 
